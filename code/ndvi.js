@@ -23,7 +23,9 @@ function cloudMask (image) {
 
 landsat_data = landsat_data.map(cloudMask);
 
-var ndvi = landsat_data.normalizedDifference(['SR_B5', 'SR_B4']).rename('NDVI');
+var ndvi = landsat_data.map(function(image) {
+  return image.normalizedDifference(['SR_B5', 'SR_B4']).rename('NDVI');
+});
 
 Map.addLayer(ndvi, {min: -1, max: 1, palette: ['blue', 'white', 'green']}, 'NDVI');
 
