@@ -36,6 +36,7 @@ var alaska_ndvi = ui.Chart.image.series({
     region: band2,
     reducer: ee.Reducer.mean(),
     scale: 2000,
+    scale: 2000,
     xProperty: 'system:time_start'
   }).setOptions({
     title: 'Alaska NDVI - Without Water Mask',
